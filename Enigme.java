@@ -1,5 +1,3 @@
-package Classes;
-
 import java.util.*;
 import java.io.*;
 
@@ -25,13 +23,14 @@ public class Enigme {
 		
 		Random random = new Random();
 
-		int value = random.nextInt(ennonce.length + 0) + 0;
+		int value = random.nextInt((ennonce.length)-1 + 0) + 0;
 		System.out.println(value);
 		System.out.println("L'énnoncé de la charade est : \n" + ennonce[value]);
 		
 		Scanner rep = new Scanner(System.in);
 		System.out.println("Quel est votre réponse ? Attention à bien écrire les mots et mettre les accents nécessaires! ");
 		essai = rep.next();
+		rep.close();
 		if( essai == reponse[value]) {
 			System.out.println("Bravo vous avez reussi l'énigme, vous gagnez donc un fragment de clé. /n Vous pouvez vous déplacer dans une nouvelle salle." );	
 			
@@ -41,6 +40,7 @@ public class Enigme {
 			Scanner rep2 = new Scanner(System.in);
 			System.out.println("Quel est votre réponse ? Attention à bien écrire les mots et mettre les accents nécessaires! ");
 			essai = rep2.next();
+			rep2.close();
 			if( essai == reponse[value]) {
 				System.out.println("Bravo vous avez reussi l'énigme, vous gagnez donc un fragment de clé. /n Vous pouvez vous déplacer dans une nouvelle salle." );	
 
@@ -59,5 +59,3 @@ public class Enigme {
 	
 
 }
-
-//  

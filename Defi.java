@@ -1,5 +1,3 @@
-package Classes;
-
 import java.util.*;
 import java.io.*;
 
@@ -15,13 +13,14 @@ public class Defi {
 		
 		Random random = new Random();
 
-		int value = random.nextInt(ennonceEsquive.length + 0) + 0;
+		int value = random.nextInt((ennonceEsquive.length)-1 + 0) + 0;
 		System.out.println(value);
 		System.out.println("Vous devez taper la chaine de 8 caractères suivante en moins de 10 secondes! ");
 		
 		Scanner rep = new Scanner(System.in);
 		System.out.println("Etes vous prêt ? Go!!! \\n   Chaine : " + ennonceEsquive[value]);
 		essai = rep.next();
+		rep.close();
 		if( essai == ennonceEsquive[value]) {
 			System.out.println("Bravo vous êtes vif! Vous gagnez donc un bon nombre de pièce. /n Vous pouvez vous déplacer dans une nouvelle salle." );	
 			
@@ -39,5 +38,3 @@ public class Defi {
 	
 
 }
-
-//  
