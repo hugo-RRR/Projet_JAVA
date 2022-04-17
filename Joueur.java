@@ -7,7 +7,7 @@ public class Joueur {
 	private int nbPieces;
 	private int posY;
 	private int posX;
-	private int nbFragmentsClÃ©;
+	private int nbFragmentsCles;
 	private int[] inventaire;
 
 	// Constructeur Joueur
@@ -17,7 +17,7 @@ public class Joueur {
     	this.nbPieces = 0;
     	this.posY = y;
     	this.posX = x;
-    	this.nbFragmentsClÃ© = 0;
+    	this.nbFragmentsCles = 0;
     	this.inventaire = new int[10];
     }
     
