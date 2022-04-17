@@ -23,7 +23,7 @@ public class Charade extends Enigme {
 		
 	}
 	
-	publi
+	public source efjehfuiezj
 	
 	
 	
