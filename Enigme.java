@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class Enigme {
 	
 	public float duree;
-	public String typeEnigme;
 	public String essai;
 	public String reponse;
 	public String ennonce [];
@@ -15,9 +14,8 @@ public class Enigme {
 
 	public Enigme(float duree, String typeEnigme, String essai, String reponse, String[] ennonce, int nbEssai) {
 		super();
-		this.duree = duree;
-		this.typeEnigme = typeEnigme;
-		this.essai = essai;
+		this.duree = 60;
+		this.essai = 2;
 		this.reponse = reponse;
 		this.ennonce = ennonce;
 		this.nbEssai = nbEssai;

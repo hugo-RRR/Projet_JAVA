@@ -3,9 +3,7 @@ import Classes.Enigme;
 
 public class Charade extends Enigme {
 	
-	float duree = 60;
-	String typeEnigme = "Rebus";
-	int nbEssai = 2;
+	String typeEnigme = "Charade";
 	String[] ennonce = {"Mon premier est la capitale de l'italie. /n Mon second est une voyelle. /n Mon troisième est un fleuve d’Europe. /n Mon tout est une plante qui sent bon.",
 			"Dans mon premier, on peut parfois trouver des vaches. /n Mon deuxième est le contraire de « oui ». /n Tout le monde possède mon tout.",
 			"Mon premier se trouve au milieu du visage. /n Mon deuxième est un métal. /n Mon troisième est un célèbre canari que Gros Minet aimerait bien manger. /n Mon tout a été une reine d’Égypte.",
