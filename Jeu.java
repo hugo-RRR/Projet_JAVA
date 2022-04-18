@@ -1,18 +1,16 @@
-package Main;
-
 import java.util.ArrayList;
-
-import Classes.Zone;
 
 public class Jeu {
 	
+	public Zone ZoneActuelle;
+	
+	Zone[][] carte=new Zone[4][3];
 	
 	public void createMap() {
-		Zone[][] carte=new Zone[4][3];
 		
 		
 		ArrayList<String> typeSalleT = new ArrayList<String>();
-
+		
 		for(int i=0; i<4; i++) {
 			typeSalleT.add("enigme");
 			typeSalleT.add("vide");
@@ -29,7 +27,7 @@ public class Jeu {
 				
 		           // generating the index using Math.random()
 		            int index = (int)(Math.random() * typeSalleT.size());
-		            carte[0][0] = new Zone(typeSalleT.get(index));
+		            carte[i][j] = new Zone(typeSalleT.get(index), i, j);
 		            System.out.println("La salle crée en est : carte " + i + ";" + j + " : "
                                + typeSalleT.get(index));
 		            typeSalleT.remove(typeSalleT.get(index));
@@ -40,13 +38,20 @@ public class Jeu {
 			
 		}
 		
-		carte[3][1] = new Zone("finale");
+		carte[3][1] = new Zone("finale", 3, 1);
 		System.out.println("La salle crée en est : carte " + carte[3][1] );
 				
+		System.out.println("La salle crée en est : carte " + carte[2][1] );	
 		
 		
 		
 		//carte[0][0] = new Zone("Enigme");
 	}
+	
+	public Zone ZoneJoueur() {
+		
+		return this.ZoneActuelle;
+	}
+	
 
 }

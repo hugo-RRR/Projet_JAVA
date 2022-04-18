@@ -1,17 +1,20 @@
-package Classes;
-import Main.Jeu;
-import java.util.HashMap;
-
 public class Zone extends Jeu {
 	
-    private String typeSalle;
+    public String typeSalle;
+    public int posX;
+    public int posY;
     
-    public Zone(String typeSalle) {
-		this.typeSalle = typeSalle;
+	public String toString() {
+		return "Zone [typeSalle=" + typeSalle + ", posX=" + posX + ", posY=" + posY + "]";
 	}
 
 
-    
-    	
+	public Zone(String typeSalle, int posX, int posY) {
+		super();
+		this.typeSalle = typeSalle;
+		this.posX = posX;
+		this.posY = posY;
+		
+	}
 
 }
