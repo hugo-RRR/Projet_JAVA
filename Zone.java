@@ -16,5 +16,93 @@ public class Zone extends Jeu {
 		this.posY = posY;
 		
 	}
+	
+	
+	
+	public void SortieNord() {
+		
+		if (this.posX-1<0 && this.posY==1) {
+			
+			System.out.println("Vous ne pouvez plus vous échapper maintenant, la porte est fermée, il faut trouver une sortie : ");
+			//DemandSortie();
+			
+		} 
+		
+		else if(this.posX-1<0 && this.posY!=1) {
+		
+			System.out.println("Il n'y a pas de sortie dans cette direction ! Vous vous prenez le mur. ");
+			//DemandSortie();
+			
+		} 
+		
+		else {
+			
+			this.ZoneActuelle = carte[this.posX-1][this.posY];
+		}
+		
+	}
+	
+	
+	
+	public void SortieSud() {
+		
+		if (this.posX+1>3 && this.posY==1) {
+			
+			System.out.println("Voulez-vous vraiment sortir du chateau ?, si vous n'avez pas toutes les clés vous serez piégé à jamais. ");
+			//FinDuJeu();
+			
+		} 
+		
+		else if (this.posX+1>3 && this.posY!=1) {
+			
+			System.out.println("Il n'y a pas de sortie dans cette direction ! Vous vous prenez le mur.");
+			//DemandSortie();
+			
+		} 
+		
+		else {
+			
+			this.ZoneActuelle = carte[this.posX+1][this.posY];
+			
+		}
+		
+	}
+	
+	public void SortieOuest() {
+		
+		if (this.posY-1<0) {
+			
+			System.out.println("Il n'y a pas de sortie dans cette direction ! Vous vous prenez le mur.");
+			//DemandSortie();
+			
+		} 
+		
+		else {
+			
+			this.ZoneActuelle = carte[this.posX][this.posY-1];
+			
+		}
+		
+	}
+	
+	
+	
+	public void SortieEst() {
+		
+		if (this.posY+1>2) {
+			
+			System.out.println("Il n'y a pas de sortie dans cette direction ! Vous vous prenez le mur.");
+			//DemandSortie();
+			
+		} 
+		
+		else {
+			
+			this.ZoneActuelle = carte[this.posX][this.posY+1];
+			
+		}
+		
+	}
+	
 
 }
