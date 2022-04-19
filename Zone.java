@@ -26,20 +26,21 @@ public class Zone extends Jeu {
 		if (this.posX-1<0 && this.posY==1) {
 			
 			System.out.println("Vous ne pouvez plus vous échapper maintenant, la porte est fermée, il faut trouver une sortie : ");
-			DemandSortie();
+			ZoneActuelle.DemandSortie();
 			
 		} 
 		
 		else if(this.posX-1<0 && this.posY!=1) {
 		
 			System.out.println("Il n'y a pas de sortie dans cette direction ! Vous vous prenez le mur. ");
-			DemandSortie();
+			ZoneActuelle.DemandSortie();
 			
 		} 
 		
 		else {
 			
 			this.ZoneActuelle = carte[this.posX-1][this.posY];
+			Jouer();
 		}
 		
 	}
@@ -58,13 +59,14 @@ public class Zone extends Jeu {
 		else if (this.posX+1>3 && this.posY!=1) {
 			
 			System.out.println("Il n'y a pas de sortie dans cette direction ! Vous vous prenez le mur.");
-			DemandSortie();
+			ZoneActuelle.DemandSortie();
 			
 		} 
 		
 		else {
 			
 			this.ZoneActuelle = carte[this.posX+1][this.posY];
+			Jouer();
 			
 		}
 		
@@ -75,13 +77,14 @@ public class Zone extends Jeu {
 		if (this.posY-1<0) {
 			
 			System.out.println("Il n'y a pas de sortie dans cette direction ! Vous vous prenez le mur.");
-			DemandSortie();
+			ZoneActuelle.DemandSortie();
 			
 		} 
 		
 		else {
 			
 			this.ZoneActuelle = carte[this.posX][this.posY-1];
+			Jouer();
 			
 		}
 		
@@ -94,13 +97,14 @@ public class Zone extends Jeu {
 		if (this.posY+1>2) {
 			
 			System.out.println("Il n'y a pas de sortie dans cette direction ! Vous vous prenez le mur.");
-			DemandSortie();
+			ZoneActuelle.DemandSortie();
 			
 		} 
 		
 		else {
 			
 			this.ZoneActuelle = carte[this.posX][this.posY+1];
+			Jeu.Jouer();
 			
 		}
 		
@@ -127,7 +131,7 @@ public class Zone extends Jeu {
 	    }
 	    else {
 	    	System.out.println("Erreur de saisie, veuillez réessayer\n");
-	    	DemandSortie();
+	    	ZoneActuelle.DemandSortie();
 	    }
     			
 	}

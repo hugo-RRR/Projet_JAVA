@@ -37,21 +37,33 @@ public class Jeu {
 			}
 			
 		}
-		carte[0][1] = new Zone("vide", 3, 1);
+		carte[0][1] = new Zone("vide", 0, 1);
 		carte[3][1] = new Zone("finale", 3, 1);
-		System.out.println("La salle crée en est : carte " + carte[3][1] );
-				
-		System.out.println("La salle crée en est : carte " + carte[2][1] );	
 		
 		this.ZoneActuelle = carte[0][1];
 		
 		//carte[0][0] = new Zone("Enigme");
+		
+		
+		
+		// Début jeu
+		
+		System.out.println("Vous êtes enfin parvenu dans le chateau, la grille se referme cependant derrière vous");
+		System.out.println("Vous êtes dans une salle vide. Où souhaitez vous aller ?");
+		ZoneActuelle.DemandSortie();
 	}
 	
+	
+	public static void Jouer() {
+		
+		
+		
+		
+	}
 	public Zone ZoneJoueur() {
 		
 		return this.ZoneActuelle;
-		SortieNord();
+		
 	}
 	
 	
