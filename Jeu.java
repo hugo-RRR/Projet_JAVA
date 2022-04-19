@@ -51,6 +51,7 @@ public class Jeu {
 	public Zone ZoneJoueur() {
 		
 		return this.ZoneActuelle;
+		SortieNord();
 	}
 	
 	

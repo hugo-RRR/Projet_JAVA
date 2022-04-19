@@ -1,8 +1,11 @@
+import java.util.Scanner;
+
 public class Zone extends Jeu {
 	
     public String typeSalle;
     public int posX;
     public int posY;
+    public String reponse;
     
 	public String toString() {
 		return "Zone [typeSalle=" + typeSalle + ", posX=" + posX + ", posY=" + posY + "]";
@@ -18,20 +21,19 @@ public class Zone extends Jeu {
 	}
 	
 	
-	
 	public void SortieNord() {
 		
 		if (this.posX-1<0 && this.posY==1) {
 			
 			System.out.println("Vous ne pouvez plus vous échapper maintenant, la porte est fermée, il faut trouver une sortie : ");
-			//DemandSortie();
+			DemandSortie();
 			
 		} 
 		
 		else if(this.posX-1<0 && this.posY!=1) {
 		
 			System.out.println("Il n'y a pas de sortie dans cette direction ! Vous vous prenez le mur. ");
-			//DemandSortie();
+			DemandSortie();
 			
 		} 
 		
@@ -56,7 +58,7 @@ public class Zone extends Jeu {
 		else if (this.posX+1>3 && this.posY!=1) {
 			
 			System.out.println("Il n'y a pas de sortie dans cette direction ! Vous vous prenez le mur.");
-			//DemandSortie();
+			DemandSortie();
 			
 		} 
 		
@@ -73,7 +75,7 @@ public class Zone extends Jeu {
 		if (this.posY-1<0) {
 			
 			System.out.println("Il n'y a pas de sortie dans cette direction ! Vous vous prenez le mur.");
-			//DemandSortie();
+			DemandSortie();
 			
 		} 
 		
@@ -92,7 +94,7 @@ public class Zone extends Jeu {
 		if (this.posY+1>2) {
 			
 			System.out.println("Il n'y a pas de sortie dans cette direction ! Vous vous prenez le mur.");
-			//DemandSortie();
+			DemandSortie();
 			
 		} 
 		
@@ -102,6 +104,32 @@ public class Zone extends Jeu {
 			
 		}
 		
+	}
+	
+	
+	
+	public void DemandSortie() {
+		Scanner rep = new Scanner(System.in);
+	    System.out.println("Choisissez une sortie : N = Nord, S = Sud, E = Est, O = Ouest");
+	    reponse = rep.next();
+	    rep.close();
+	    if(reponse == "N") {
+	    	SortieNord();
+	    }
+	    else if(reponse == "S") {
+	    	SortieSud();
+	    }
+	    else if(reponse == "E") {
+	    	SortieEst();
+	    }
+	    else if(reponse == "O") {
+	    	SortieOuest();
+	    }
+	    else {
+	    	System.out.println("Erreur de saisie, veuillez réessayer\n");
+	    	DemandSortie();
+	    }
+    			
 	}
 	
 
