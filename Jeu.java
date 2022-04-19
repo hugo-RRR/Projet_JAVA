@@ -13,10 +13,10 @@ public class Jeu {
 		
 		for(int i=0; i<4; i++) {
 			typeSalleT.add("enigme");
-			typeSalleT.add("vide");
+			typeSalleT.add("defi");
 		}
 		for(int i=0; i<3; i++) {
-			typeSalleT.add("defi");
+			typeSalleT.add("vide");
 			
 		}
 		typeSalleT.add("marchand");
@@ -37,13 +37,13 @@ public class Jeu {
 			}
 			
 		}
-		
+		carte[0][1] = new Zone("vide", 3, 1);
 		carte[3][1] = new Zone("finale", 3, 1);
 		System.out.println("La salle crée en est : carte " + carte[3][1] );
 				
 		System.out.println("La salle crée en est : carte " + carte[2][1] );	
 		
-		
+		this.ZoneActuelle = carte[0][1];
 		
 		//carte[0][0] = new Zone("Enigme");
 	}
@@ -52,6 +52,8 @@ public class Jeu {
 		
 		return this.ZoneActuelle;
 	}
+	
+	
 	
 
 }
