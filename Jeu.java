@@ -58,7 +58,7 @@ public class Jeu {
 		
 		if (this.ZoneActuelle.typeSalle == "vide") {
 			
-			//salleVide();
+			SalleVide.SalleVide();
 		}
 		
 		else if (this.ZoneActuelle.typeSalle == "enigme") {
@@ -76,6 +76,8 @@ public class Jeu {
 			//Marchand.marchand();
 		}
 		
+		ZoneActuelle.DemandSortie();
+		
 		
 	}
 	public Zone ZoneJoueur() {
@@ -83,8 +85,6 @@ public class Jeu {
 		return this.ZoneActuelle;
 		
 	}
-	
-	
 	
 
 }

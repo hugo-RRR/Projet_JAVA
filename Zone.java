@@ -104,7 +104,7 @@ public class Zone extends Jeu {
 		else {
 			
 			this.ZoneActuelle = carte[this.posX][this.posY+1];
-			Jeu.Jouer();
+			Jouer();
 			
 		}
 		
