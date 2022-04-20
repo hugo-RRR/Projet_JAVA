@@ -17,4 +17,10 @@ public class Objet {
 	public int getPrix() {
 		return this.prix;
 	}
+	
+	@Override
+	public String toString() {
+		return "L'objet " + nom + " coûte " + prix + " pièces";
+	
+	}
 }
