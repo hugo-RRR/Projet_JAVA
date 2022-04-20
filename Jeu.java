@@ -54,9 +54,27 @@ public class Jeu {
 	}
 	
 	
-	public static void Jouer() {
+	public void Jouer() {
 		
+		if (this.ZoneActuelle.typeSalle == "vide") {
+			
+			//salleVide();
+		}
 		
+		else if (this.ZoneActuelle.typeSalle == "enigme") {
+			
+			Enigme.charade();
+		}
+		
+		else if (this.ZoneActuelle.typeSalle == "defi") {
+			
+			Defi.esquive();
+		}
+		
+		else {
+			
+			//Marchand.marchand();
+		}
 		
 		
 	}
