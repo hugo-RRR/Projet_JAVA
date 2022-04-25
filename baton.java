@@ -4,7 +4,7 @@ public class baton extends Objet {
 		super("Baton Miagique", 15);
 	}
 	
-	public void acheteBaton() {
+	public static void acheteBaton() {
 		 Joueur.perdrePieces(15);
 	}
 	
