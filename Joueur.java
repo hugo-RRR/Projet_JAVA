@@ -10,12 +10,16 @@ public class Joueur {
 	public static boolean possedeArmure;
 
 	// Constructeur Joueur
-    public Joueur(String nom, int y, int x){
+    public Joueur(String nom){
     	this.nom = nom;
     	this.nbVies = 3;
+<<<<<<< Updated upstream
     	nbPieces = 0;
     	this.posY = y;
     	this.posX = x;
+=======
+    	this.nbPieces = 0;
+>>>>>>> Stashed changes
     	this.nbFragmentsCle = 0;
     	this.inventaire = new boolean[5];
     	this.vivre = true;
@@ -26,6 +30,8 @@ public class Joueur {
     		inventaire[i] = false;
     	}
     }
+    
+    //Joueur j = new Joueur("j1");
     
     
     public void gagnerPieces(int pieces) {
@@ -64,6 +70,7 @@ public class Joueur {
     	else
     		return Joueur.possedeArmure == false;
     }
+<<<<<<< Updated upstream
     
     public int getPosY() {
     	return posY;
@@ -76,6 +83,8 @@ public class Joueur {
     public int getPosX() {
     	return posX;
     }
+=======
+>>>>>>> Stashed changes
 
 	public void setPosX(int posX) {
 		this.posX = posX;

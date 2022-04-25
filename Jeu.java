@@ -5,6 +5,7 @@ public class Jeu {
 	public Zone ZoneActuelle;
 	
 	Zone[][] carte=new Zone[4][3];
+	Joueur j = new Joueur("j1");
 	
 	public void createMap() {
 		
@@ -37,6 +38,7 @@ public class Jeu {
 			}
 			
 		}
+		
 		carte[0][1] = new Zone("vide", 0, 1);
 		carte[3][1] = new Zone("finale", 3, 1);
 		

@@ -23,7 +23,7 @@ public class Enigme {
 		
 		Random random = new Random();
 
-		int value = random.nextInt((ennonce.length)-1 + 0) + 0;
+		int value = random.nextInt((ennonce.length-1)- 0 + 1) + 0;
 		System.out.println(value);
 		System.out.println("L'énnoncé de la charade est : \n" + ennonce[value]);
 		
