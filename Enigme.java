@@ -43,7 +43,7 @@ public class Enigme {
 			rep2.close();
 			if( essai == reponse[value]) {
 				System.out.println("Bravo vous avez reussi l'énigme, vous gagnez donc un fragment de clé. /n Vous pouvez vous déplacer dans une nouvelle salle." );	
-
+				j.gagnerFragmentsCle();
 			}
 			else {
 				System.out.println("Vous avez échoué vous perdez une vie.");

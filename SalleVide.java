@@ -3,7 +3,7 @@ import java.util.*;
 public class SalleVide {
 	
 	public static String rep1;
-    static Joueur j = new Joueur("j1");
+	
 	
 	public static void SalleVide() {
 		

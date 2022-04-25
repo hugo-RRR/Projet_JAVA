@@ -23,7 +23,7 @@ public class Defi {
 		rep.close();
 		if( essai == ennonceEsquive[value]) {
 			System.out.println("Bravo vous êtes vif! Vous gagnez donc un bon nombre de pièce. /n Vous pouvez vous déplacer dans une nouvelle salle." );	
-			j.Gagner
+			j.gagnerFragmentsCle();
 		}
 		else {
 			System.out.println("Vous avez échoué vous perdez une vie.");
