@@ -4,9 +4,8 @@ public class Jeu {
 	
 	public Zone ZoneActuelle;
 	
-	Zone[][] carte=new Zone[4][3];
-	public Joueur joueur;
-
+	public Zone[][] carte=new Zone[4][3];
+	public Joueur j = new Joueur("j1");
 	
 	public void createMap() {
 		
@@ -40,11 +39,12 @@ public class Jeu {
 			
 		}
 		
-		this.joueur = new Joueur("j1");
+		
 		carte[0][1] = new Zone("vide", 0, 1);
 		carte[3][1] = new Zone("finale", 3, 1);
 		
 		this.ZoneActuelle = carte[0][1];
+		System.out.println(carte[1][1]);
 		
 		//carte[0][0] = new Zone("Enigme");
 		
@@ -54,41 +54,38 @@ public class Jeu {
 		
 		System.out.println("Vous êtes enfin parvenu dans le chateau, la grille se referme cependant derrière vous");
 		System.out.println("Vous êtes dans une salle vide. Où souhaitez vous aller ?");
-		ZoneActuelle.DemandSortie();
+		System.out.println("fsfsf +" + this.ZoneActuelle);
+		Zone.DemandSortie(this.ZoneActuelle);
 	}
 	
 	
 	public void Jouer() {
 		
-		if (this.ZoneActuelle.typeSalle == "vide") {
+		if (this.ZoneActuelle.typeSalle.equals("vide")) {
 			
-			SalleVide.SalleVide();
+			SalleVide.AppelleSalleVide(this.j);
 		}
 		
-		else if (this.ZoneActuelle.typeSalle == "enigme") {
+		else if (this.ZoneActuelle.typeSalle.equals("enigme")) {
 			
 			Enigme.charade();
 		}
 		
-		else if (this.ZoneActuelle.typeSalle == "defi") {
+		else if (this.ZoneActuelle.typeSalle.equals("defi")) {
 			
 			Defi.esquive();
 		}
 		
 		else {
 			
-			//Marchand.marchand();
+			Marchand.marchand();
 		}
 		
-		ZoneActuelle.DemandSortie();
+		Zone.DemandSortie(this.ZoneActuelle);
 		
 		
 	}
-	public Zone ZoneJoueur() {
-		
-		return this.ZoneActuelle;
-		
-	}
+	
 	
 
 }

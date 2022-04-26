@@ -5,7 +5,9 @@ public class SalleVide {
 	public static String rep1;
 	
 	
-	public static void SalleVide() {
+	
+	
+	public static void AppelleSalleVide(Joueur j) {
 		
 		System.out.println("Vous arrivez dans une salle vide ! Il y a un gros tonneau dans le coin de la salle. ");
 		Scanner rep = new Scanner(System.in);

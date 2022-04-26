@@ -5,7 +5,7 @@ public class armure extends Objet{
 	}
 	
 	public static void acheteArmure(Joueur j) {
-		if(j.nbPieces >= 25) {
+		if(j.getNbPieces() >= 25) {
 			j.perdrePieces(25);
 			j.inventaire[1] = true;
 		}

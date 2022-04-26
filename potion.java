@@ -4,7 +4,7 @@ public class potion extends Objet{
 	}
 	
 	public static void achetePotion(Joueur j) {
-		if(j.nbPieces >= 10) {
+		if(j.getNbPieces() >= 10) {
 			j.perdrePieces(10);
 			j.inventaire[2] = true;
 		}

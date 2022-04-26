@@ -5,7 +5,7 @@ public class baton extends Objet {
 	}
 	
 	public static void acheteBaton(Joueur j) {
-		if(j.nbPieces >= 15) {
+		if(j.getNbPieces() >= 15) {
 			j.perdrePieces(15);
 			j.inventaire[3] = true;
 		}
