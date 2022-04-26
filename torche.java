@@ -5,7 +5,7 @@ public class torche extends Objet{
 	}
 	
 	public static void acheteTorche() {
-		Joueur.perdrePieces(5);
+		j.perdrePieces(5);
 	}
 	
 	public void utiliseTorche() {

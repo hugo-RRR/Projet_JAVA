@@ -15,7 +15,7 @@ public class Joueur {
     	this.nbVies = 3;
     	this.nbPieces = 0;
     	this.nbFragmentsCle = 0;
-    	this.inventaire = new boolean[5];
+    	this.inventaire = new boolean[4];
     	this.vivre = true;
     	
     	for(int i = 0; i < inventaire.length; i++) {
@@ -23,7 +23,7 @@ public class Joueur {
     	}
     }
     
-    //Joueur j = new Joueur("j1");
+    Joueur j = new Joueur("j1");
     
     
     public void gagnerPieces(int pieces) {
@@ -31,10 +31,11 @@ public class Joueur {
     }
     
     public void perdrePieces(int prix) {
-    	if(this.nbPieces < prix) {
+    	if(j.nbPieces < prix) {
+    		System.out.println("Vous n'avez pas assez de pièce pour acheter l'objet");
     	}
     	else 
-    		this.nbPieces = this.nbPieces - prix;
+    		j.nbPieces = j.nbPieces - prix;
     }
     
     public void gagnerFragmentsCle() {
