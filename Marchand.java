@@ -20,7 +20,7 @@ public class Marchand {
 			
 	}
 	
-	public static void acheterObjet() {
+	public static void acheterObjet(Joueur j) {
 		String choix;
 		
 		do {
@@ -30,7 +30,7 @@ public class Marchand {
 	        choix = rep.next();
 	        rep.close();
 	        if(choix == "T" && Marchand.t) {
-	        	torche.acheteTorche();
+	        	j.acheteTorche();
 	        	Marchand.t = false;
 	        }
 	        else if(choix == "B" && Marchand.b) {
