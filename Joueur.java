@@ -1,10 +1,8 @@
 public class Joueur {
 
-    	private String nom;
+    private String nom;
 	private int nbVies;
 	private int nbPieces;
-	private int posY;
-	private int posX;
 	private int nbFragmentsCle;
 	private boolean[] inventaire;
 	private boolean vivre;
@@ -23,19 +21,17 @@ public class Joueur {
     	}
     }
     
-    Joueur j = new Joueur("j1");
-    
     
     public void gagnerPieces(int pieces) {
     	this.nbPieces = this.nbPieces + pieces;
     }
     
     public void perdrePieces(int prix) {
-    	if(j.nbPieces < prix) {
+    	if(this.nbPieces < prix) {
     		System.out.println("Vous n'avez pas assez de pièce pour acheter l'objet");
     	}
     	else 
-    		j.nbPieces = j.nbPieces - prix;
+    		this.nbPieces = this.nbPieces - prix;
     }
     
     public void gagnerFragmentsCle() {
