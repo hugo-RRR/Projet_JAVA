@@ -7,7 +7,7 @@ public class Marchand {
 	private static boolean p = true;
 	private static boolean a = true;
 	
-	public static void marchand() {
+	public static void marchand(Joueur j) {
 		
 		System.out.println("Bonjour et bienvenue dans la salle marchande, c'est une 'safe' zone dans laquelle vous pouvez acheter des objets qui pourront vous aider dans votre fuite !");
 		
@@ -30,19 +30,23 @@ public class Marchand {
 	        choix = rep.next();
 	        rep.close();
 	        if(choix == "T" && Marchand.t) {
+<<<<<<< Updated upstream
 	        	j.acheteTorche();
+=======
+	        	torche.acheteTorche(j);
+>>>>>>> Stashed changes
 	        	Marchand.t = false;
 	        }
 	        else if(choix == "B" && Marchand.b) {
-	        	baton.acheteBaton();
+	        	baton.acheteBaton(j);
 	        	Marchand.b = false;
 	        }
 	        else if(choix == "P" && Marchand.p) {
-	        	potion.achetePotion();
+	        	potion.achetePotion(j);
 	        	Marchand.p = false;
 	        }
 	        else if(choix == "A" && Marchand.a) {
-	        	armure.acheteArmure();
+	        	armure.acheteArmure(j);
 	        	Marchand.a = false;
 	        }
 	        else {

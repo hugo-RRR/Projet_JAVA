@@ -78,7 +78,7 @@ public class Jeu {
 		
 		else {
 			
-			Marchand.marchand();
+			Marchand.marchand(this.j);
 		}
 		
 		Zone.DemandSortie(this.ZoneActuelle);
