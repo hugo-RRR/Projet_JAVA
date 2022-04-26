@@ -7,7 +7,7 @@ public class torche extends Objet{
 	public static void acheteTorche(Joueur j) {
 		if(j.getNbPieces() >= 5) {
 			j.perdrePieces(5);
-			Joueur.inventaire[0] = true;
+			j.inventaire[0] = true;
 		}
 		else
 			System.out.println("Vous n'avez pas assez de pièce pour acheter la torche");

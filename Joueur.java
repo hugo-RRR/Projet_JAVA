@@ -6,7 +6,7 @@ public class Joueur {
 	private int posX;
 	private int nbPieces;
 	private int nbFragmentsCle;
-	static boolean[] inventaire;
+	boolean[] inventaire;
 	private boolean vivre;
 
 	// Constructeur Joueur
