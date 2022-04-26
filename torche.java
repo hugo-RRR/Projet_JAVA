@@ -12,3 +12,4 @@ public class torche extends Objet{
 		System.out.println("Vous utilisez la torche pour débloquer la salle!");	
 	}
 }
+ 
