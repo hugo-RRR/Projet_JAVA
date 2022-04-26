@@ -30,11 +30,7 @@ public class Marchand {
 	        choix = rep.next();
 	        rep.close();
 	        if(choix == "T" && Marchand.t) {
-<<<<<<< Updated upstream
-	        	j.acheteTorche();
-=======
 	        	torche.acheteTorche(j);
->>>>>>> Stashed changes
 	        	Marchand.t = false;
 	        }
 	        else if(choix == "B" && Marchand.b) {
