@@ -5,7 +5,7 @@ public class Objet {
 	
 	public Objet(String name, int prix) {
 		this.nom = name;
-		this.prix = prix;
+		this.prix = prix;							//classe mère objet
 	}
 
 	public String getNom() {

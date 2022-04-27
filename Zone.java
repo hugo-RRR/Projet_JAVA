@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Zone extends Jeu {
 	
     public String typeSalle;
-    public int posX;
+    public int posX;							//Classe Zone
     public int posY;
     public String reponse;
     
@@ -21,26 +21,29 @@ public class Zone extends Jeu {
 	}
 	
 	
-	public void SortieNord() {
+	public void SortieNord() {				//définition de chaque sorties, selon les possibilités : ICI nord
 		
-		if (this.posX-1<0 && this.posY==1) {
+		if (this.posX-1<0 && this.posY==1) 
+		{				// Si le joueur est dans la salle de départ X=0 et Y=1, le joueur ne peut pas aller au NORD car mur
 			
 			System.out.println("La fenêtre par laquelle vous êtes passé est trop haute pour l'atteindre, il faut trouver une autre sortie : ");
-			Zone.DemandSortie(this);
+			Zone.DemandSortie(this);   //redemande la sortie
 			
 		} 
 		
-		else if(this.posX-1<0 && this.posY!=1) {
+		else if(this.posX-1<0 && this.posY!=1) 
+		{		// si le joueur est en haut pas au milieu ==> impossible d'aller au Nord
 		
 			System.out.println("Il n'y a pas de sortie dans cette direction ! Vous vous prenez le mur. ");
-			Zone.DemandSortie(this);
+			Zone.DemandSortie(this);			//redemande une autre sortie
 			
 		} 
 		
-		else {
+		else 
+		{						//Si la sortie est possible  => change la position actuelle du joueur dans la bonne Zone de la carte
 			
 			this.ZoneActuelle = carte[this.posX-1][this.posY];
-			super.Jouer(j);
+			super.Jouer(j);			//appelle la méthode qui permet de jouer le contenu de la salle dans laquelle il entre
 		}
 		
 	}
@@ -49,7 +52,8 @@ public class Zone extends Jeu {
 	
 	public void SortieSud() {
 		
-		if (this.posX+1>3 && this.posY==1) {
+		if (this.posX+1>3 && this.posY==1) 
+		{					//Si salle en bas ==> Direction salle finale donc avertissement ==>
 			
 			System.out.println("Voulez-vous vraiment sortir du chateau ?? Si vous n'avez pas toutes les clés vous serez piégé à jamais.");
 			Scanner rep = new Scanner(System.in);
@@ -57,13 +61,13 @@ public class Zone extends Jeu {
 		    String reponse = rep.nextLine();
 		    
 		    if (reponse.equals("O")) {
-		    	FinDuJeu(j);
+		    	FinDuJeu(j);   //Si le joueur a décidé de sortir appelle la fonction de la salle finale
 		    }
 		    
 		    else {
 		    	
 		    	System.out.println("Vous rebroussez chemin pour poursuivre votre aventure.");
-		    	Zone.DemandSortie(this);
+		    	Zone.DemandSortie(this); //Redemande la sortie si le joueur ne veut pas partir tout de suite
 		    	
 		    }
 			
@@ -72,17 +76,17 @@ public class Zone extends Jeu {
 		else if (this.posX+1>3 && this.posY!=1) {
 			
 			System.out.println("Il n'y a pas de sortie dans cette direction ! Vous vous prenez le mur.");
-			Zone.DemandSortie(this);
+			Zone.DemandSortie(this);		//Condition ou le joueur ne peut pas aller en Sud : salle en X=3 à droite et à gauche
 			
 		} 
 		
 		else {
 			
-			System.out.println(this.posX+1);
-			System.out.println(this.posY);
-			System.out.println(carte[this.posX+1][this.posY]);
-			super.ZoneActuelle = super.carte[this.posX+1][this.posY];
-			super.Jouer(j);
+			//System.out.println(this.posX+1);		Test pour comprendre d'ou vient le problème
+			//System.out.println(this.posY);
+			//System.out.println(carte[this.posX+1][this.posY]);
+			this.ZoneActuelle = carte[this.posX+1][this.posY];
+			super.Jouer(j);  				//appelle la méthode qui permet de jouer le contenu de la salle dans laquelle il entre
 			
 		}
 		
@@ -93,14 +97,14 @@ public class Zone extends Jeu {
 		if (this.posY-1<0) {
 			
 			System.out.println("Il n'y a pas de sortie dans cette direction ! Vous vous prenez le mur.");
-			Zone.DemandSortie(this);
+			Zone.DemandSortie(this);		//Condition ou le joueur ne peut pas aller en Ouest mais pas de situation particulière
 			
 		} 
 		
 		else {
 			
 			this.ZoneActuelle = carte[this.posX][this.posY-1];
-			super.Jouer(j);
+			super.Jouer(j);			//appelle la méthode qui permet de jouer le contenu de la salle dans laquelle il entre
 			
 		}
 		
@@ -113,21 +117,21 @@ public class Zone extends Jeu {
 		if (this.posY+1>2) {
 			
 			System.out.println("Il n'y a pas de sortie dans cette direction ! Vous vous prenez le mur.");
-			Zone.DemandSortie(this);
+			Zone.DemandSortie(this);			//Condition ou le joueur ne peut pas aller en Est mais pas de situation particulière
 			
 		} 
 		
 		else {
 			
-			this.ZoneActuelle = carte[this.posX][this.posY+1];
-			super.Jouer(j);
+			this.ZoneActuelle = carte[this.posX][this.posY+1];		//reatribution de la zone actuelle du joueur
+			super.Jouer(j);		//appelle la méthode qui permet de jouer le contenu de la salle dans laquelle il entre
 			
 		}
 		
 	}
 	
 	
-	public static void afficheCommande(Joueur j, Zone z) {
+	public static void afficheCommande(Joueur j, Zone z) {				//Affiche le choix des différentes commandes au début de chaque "tour"
 		
 		Scanner rep = new Scanner(System.in);
 		System.out.println("Si vous voulez afficher votre position :  A = Afficher ");
@@ -137,16 +141,19 @@ public class Zone extends Jeu {
 	    
 	    String reponse = rep.nextLine();
 	    
-	    if(reponse.equals("A")) {
-	    	System.out.println(z);
-	    	Zone.afficheCommande(j, z);
+	    if(reponse.equals("A")) 
+	    {
+	    	System.out.println(z);   //Affiche la zone actuelle du joueur
+	    	Zone.afficheCommande(j, z);   // ==>> affiche l'invit de commande à choisir
 	    }
 	    
-	    else if(reponse.equals("I")) {
-	    	for (int i = 0; i<4; i++) {
+	    else if(reponse.equals("I")) 
+	    {			//Affiche l'inventaire du Joueur
+	    	
+	    	for (int i = 0; i<4; i++) {    //POur chaque case d'inventaire du joueur lui dit si il possède l'objet 
 	    		
 	    		boolean value = j.inventaire[i];
-	    		if (value == true) {
+	    		if (value == true) {						//si true =+> possède l'objet
 	    			
 	    			if (i == 0) {
 	    				System.out.println("Vous possedez une torche dans votre inventaire.\n");
@@ -161,7 +168,7 @@ public class Zone extends Jeu {
 	    				System.out.println("Vous possedez un baton miagique dans votre inventaire.\n");
 	    			}
 	    			
-	    		} else {
+	    		} else {			//sinon ne le possède pas
 	    			
 	    			if (i == 0) {
 	    				System.out.println("Vous ne possedez pas la torche dans votre inventaire. \n");
@@ -175,24 +182,26 @@ public class Zone extends Jeu {
 	    			else if (i==3) {
 	    				System.out.println("Vous ne possedez pas le baton miagique dans votre inventaire. \n");
 	    			}
+	    			
 	    		}
 	    		
 	    	}
-	    	System.out.println("Il vous reste également : " + j.getNbVies() + " vies et " + j.getNbPieces() + " pièces.\n");
-	    	Zone.afficheCommande(j, z);
+	    	
+	    	System.out.println("Il vous reste également : " + j.getNbVies() + " vies et " + j.getNbPieces() + " pièces.\n");  //indique également le nombre de vies restantes et le nb de pièces possédées
+	    	Zone.afficheCommande(j, z);			//redemande les commandes
 	    }
 	    
-	    if (reponse.equals("O")) {
+	    if (reponse.equals("O")) {			//demande si le joueur veut utiliser un objet
 	    	
 	    		
-	    		if (j.inventaire[0] == true) {
+	    		if (j.inventaire[0] == true) {				//verification qu'il possède l'objet
 
 	    				Scanner rep1 = new Scanner(System.in);
 	    			    System.out.println("Voulez-vous utiliser votre torche ? O = oui / N = non");
 	    			    String reponse1 = rep1.nextLine();
 	    			    
 	    			    if (reponse1.equals("O")) {
-	    			    	torche.utiliseTorche(j);
+	    			    	torche.utiliseTorche(j);			//méthode qui utilise la torche dans classe torche
 	    			    	
 	    			    }
 	    			}
@@ -204,46 +213,49 @@ public class Zone extends Jeu {
 	    			    String reponse2 = rep2.nextLine();
 	    			    
 	    			    if (reponse2.equals("O")) {
-	    			    	potion.utilisePotion(j);
+	    			    	potion.utilisePotion(j);		//potion utilisée 
 	    			    }
 	    			}
 	    		
 	    			else {
 	    				
-	    				System.out.println("Vous ne possedez aucun objet que vous pouvez utiliser maintenant !\n");
+	    				System.out.println("Vous ne possedez aucun objet que vous pouvez utiliser maintenant !\n"); //sinon le joueur ne possède aucun objet à utiliser maintenant
 	    			}
 	    		
 	    		
-	    	Zone.afficheCommande(j, z);
+	    	Zone.afficheCommande(j, z);  
 	    }
 	    
-	    if(reponse.equals("S")) {
+	    if(reponse.equals("S")) 
+	    {							//demande les sorties pour passer à la suite du jeu
+	    	
 	    	Zone.DemandSortie(z);
+	    	
 	    }
 	    
 		
 	}
 	
-	public static void DemandSortie(Zone z) {
+	public static void DemandSortie(Zone z) {			//fnction pour le choix de la direction
 		
 	    Scanner rep1 = new Scanner(System.in);
 	    System.out.println("Choisissez une sortie : N = Nord, S = Sud, E = Est, O = Ouest");
 	    String reponse1 = rep1.nextLine();
 	    
-	    if(reponse1.equals("N")) {
+	    if(reponse1.equals("N")) {				//si Choix N appelle fonction SortieNord qui indique si sortie au nord possible sinon reappelle la fonction DemandSortie()
 	    	z.SortieNord();
 	    }
-	    else if(reponse1.equals("S")) {
+	    else if(reponse1.equals("S")) {		//pareil pour sud
 	    	z.SortieSud();
 	    }
-	    else if(reponse1.equals("E")) {
+	    else if(reponse1.equals("E")) {    //pareil pour est
 	    	z.SortieEst();
 	    }
-	    else if(reponse1.equals("O")) {
+	    else if(reponse1.equals("O")) {		//pareil pour ouest
 	    	z.SortieOuest();
 	    }
 	    else {
-	    	System.out.println("Erreur de saisie, veuillez réessayer\n");
+	    	System.out.println("Erreur de saisie, veuillez réessayer\n");		//si erreur demande sortie
 	    	Zone.DemandSortie(z);
 	    }
     			
@@ -251,32 +263,32 @@ public class Zone extends Jeu {
 	
 	public Zone ZoneJoueur() {
 		
-		return this.ZoneActuelle;
+		return this.ZoneActuelle;		//retourne la zone actuelle du joueur
 		
 	}
 	
-	public static void FinDuJeu(Joueur j) {
+	public static void FinDuJeu(Joueur j) {					//Salle finale du Jeu 
 		
 		System.out.println("Vous rentrez dans la pièce finale, vous voyez une porte majestueuse en face de vous ! Vous ressentez derrière cette porte une brise d'air, c'est l'air exterieur ! Vous êtes tout proche de la liberté !!");
 		System.out.println("Cependant en refermant la porte par laquelle vous êtes entré vous déclenchez un piège, la porte d'entrée se verrouille et vous observez des murs qui petit à petit se referme vers vous.");
 		System.out.println("Si vous ne vous dêpechez pas vous allez finir écrasé entre ces 2 murs. Vous vous ruez vers la porte de sortie et sortez votre trousseau de clés.");
 		System.out.println("Vous observez la porte et remarquez qu'il y a 3 emplacements pour mettre les fragments de clés et l'ouvrir.");
 		
-		if (j.getNbFragmentsCle() >= 3) {
+		if (j.getNbFragmentsCle() >= 3) { 			//Si le joueur a assez de fragments ==> CONDITION DE   VICTOIRE
 			
 			System.out.println("Vous comptez le nombre de fragments de clés, il y en a : " + j.getNbFragmentsCle() + ". Vous vous empressez de les faire coullisser dans la porte.");
 			System.out.println("La porte s'ouvre enfin, vous êtes libre, vous déguerpissez à vive allure sans vous retourner en direction de votre repère.");
 			
 			
-			System.out.println("Merci d'avoir joué à la fuite du Miagiste !!!! ");
+			System.out.println("Merci d'avoir joué à la fuite du Miagiste !!!! ");    // VICTOIRE
 		}
 		
-		else {
+		else {				//si pas assez de fragments ==> CONDITION DE DEFAITE
 			
 			System.out.println("Vous comptez le nombre de fragments de clés, il y en a : " + j.getNbFragmentsCle() + ". Vous vous rendez compte que vous n'en avez pas assez, mais c'est déjà trop tard.");
 			System.out.println("Votre sort est scellé, votre corps s'écroule de desespoir et vous attendez votre mort en regardant les murs se refermer sur vous...");
 			
-			System.out.println("Merci d'avoir joué à la fuite du Miagiste !!!! ");
+			System.out.println("Merci d'avoir joué à la fuite du Miagiste !!!! ");   //DEFAITE
 		}
 		
 	}

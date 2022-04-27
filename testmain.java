@@ -1,7 +1,7 @@
-import java.util.*;
+import java.util.*;												
 
-public class testmain {
-
+public class testmain {									//FICHIER INUTILE POUR LE JEU MAIS QUI A PERMIS DE REALISER DES TU(tests unitaires)
+																				//  sur les différentes méthodes
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
