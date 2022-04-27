@@ -13,8 +13,10 @@ public class armure extends Objet{
 			System.out.println("Vous n'avez pas assez de pièce pour acheter l'armure");
 	}
 	
-	public int utiliseArmure(Joueur j) {
-		System.out.println("Vous utilisez l'armure pour ne pas perdre de vie!");
-		return j.getNbVies();
+	public static void utiliseArmure(Joueur j) {
+			
+		System.out.println("Vous possedez cependant une armure sur vous, vous ne prenez pas de dégats!");
+		j.gagnerVie();
+		j.inventaire[1] = false;
 	}
 }

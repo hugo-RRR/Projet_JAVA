@@ -13,8 +13,10 @@ public class baton extends Objet {
 			System.out.println("Vous n'avez pas assez de pièce pour acheter le baton");
 	}
 	
-	public void utiliseBaton(Joueur j) {
+	public static void utiliseBaton(Joueur j) {
 		System.out.println("Vous utilisez le baton miagique pour changer d'énigme!");
-		Enigme.charade();
+		j.inventaire[3] = false;
+		Enigme.charade(j);
+		
 	}
 }

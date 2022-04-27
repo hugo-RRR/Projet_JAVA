@@ -31,7 +31,7 @@ public class SalleVide {
 	    	else {
 	    		
 	    		System.out.println("Vous ouvrez le coffre, un nain y surgit muni d'un poignard et vous dépouille de 5 pièces");
-	    		j.perdrePieces(5);
+	    		j.perdrePieces(3);
 	    		
 	    	}
 	    	

@@ -3,10 +3,9 @@ import java.io.*;
 
 public class Enigme {
 	
-	public float duree = 60;
 	public static String essai;
 	
-	public static void charade() {
+	public static void charade(Joueur j) {
 		
 		
 		String[] ennonce = {"Mon premier est la capitale de l'italie. /n Mon second est une voyelle. /n Mon troisième est un fleuve d’Europe. /n Mon tout est une plante qui sent bon.",
@@ -24,31 +23,90 @@ public class Enigme {
 		Random random = new Random();
 
 		int value = random.nextInt((ennonce.length-1)- 0 + 1) + 0;
-		System.out.println(value);
 		System.out.println("L'énnoncé de la charade est : \n" + ennonce[value]);
-		
-		Scanner rep = new Scanner(System.in);
-		System.out.println("Quel est votre réponse ? Attention à bien écrire les mots et mettre les accents nécessaires! ");
-		essai = rep.next();
-		rep.close();
-		if( essai == reponse[value]) {
-			System.out.println("Bravo vous avez reussi l'énigme, vous gagnez donc un fragment de clé. /n Vous pouvez vous déplacer dans une nouvelle salle." );	
-			
+		if (j.inventaire[3] == true) {
+			Scanner rep1 = new Scanner(System.in);
+		    System.out.println("Voulez-vous utiliser votre baton miagique pour afficher une nouvelle charade ? O = oui / N = non");
+		    String reponse1 = rep1.nextLine();
+		    
+		    if (reponse1.equals("O")) {
+		    	baton.utiliseBaton(j);
+		    }
+		    
+		    else {
+		    	
+		    	Scanner rep = new Scanner(System.in);
+				System.out.println("Quel est votre réponse ? Attention à bien écrire les mots et mettre les accents nécessaires! ");
+				essai = rep.nextLine();
+				rep.close();
+				if( essai.equals(reponse[value])) {
+					System.out.println("Bravo vous avez reussi l'énigme, vous gagnez donc un fragment de clé. /n Vous pouvez vous déplacer dans une nouvelle salle." );
+					j.gagnerFragmentsCle();
+					
+				}
+				else {
+					System.out.println("Mauvaise réponse! Il vous reste 1 essai!");
+					Scanner rep2 = new Scanner(System.in);
+					System.out.println("Quel est votre réponse ? Attention à bien écrire les mots et mettre les accents nécessaires! ");
+					essai = rep2.nextLine();
+					rep2.close();
+					if( essai.equals(reponse[value])) {
+						System.out.println("Bravo vous avez reussi l'énigme, vous gagnez donc un fragment de clé. /n Vous pouvez vous déplacer dans une nouvelle salle." );	
+						j.gagnerFragmentsCle();
+					}
+					else {
+						System.out.println("Vous avez échoué vous perdez une vie.");
+						j.degat();
+						
+						if (j.inventaire[1] == true) {
+							armure.utiliseArmure(j);
+						}
+					
+						
+					}
+		    	
+				}
+				
+		    } 
+		    
 		}
+		
+		
 		else {
-			System.out.println("Mauvaise réponse! Il vous reste 1 essai!");
-			Scanner rep2 = new Scanner(System.in);
+		
+			Scanner rep = new Scanner(System.in);
 			System.out.println("Quel est votre réponse ? Attention à bien écrire les mots et mettre les accents nécessaires! ");
-			essai = rep2.next();
-			rep2.close();
-			if( essai == reponse[value]) {
-				System.out.println("Bravo vous avez reussi l'énigme, vous gagnez donc un fragment de clé. /n Vous pouvez vous déplacer dans une nouvelle salle." );	
+			essai = rep.nextLine();
+			rep.close();
+			if( essai.equals(reponse[value])) {
+				System.out.println("Bravo vous avez reussi l'énigme, vous gagnez donc un fragment de clé. /n Vous pouvez vous déplacer dans une nouvelle salle." );
 				j.gagnerFragmentsCle();
+				
 			}
 			else {
-				System.out.println("Vous avez échoué vous perdez une vie.");
+				System.out.println("Mauvaise réponse! Il vous reste 1 essai!");
+				Scanner rep2 = new Scanner(System.in);
+				System.out.println("Quel est votre réponse ? Attention à bien écrire les mots et mettre les accents nécessaires! ");
+				essai = rep2.nextLine();
+				rep2.close();
+				if( essai.equals(reponse[value])) {
+					System.out.println("Bravo vous avez reussi l'énigme, vous gagnez donc un fragment de clé. /n Vous pouvez vous déplacer dans une nouvelle salle." );	
+					j.gagnerFragmentsCle();
+				}
+				else {
+					System.out.println("Vous avez échoué vous perdez une vie.");
+					j.degat();
+					if (j.inventaire[1] == true) {
+						armure.utiliseArmure(j);
+					}
+					
+				}
+				
 			}
+			
 		}
+		
+		
 	}
 	
 	

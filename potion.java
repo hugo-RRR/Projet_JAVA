@@ -12,8 +12,9 @@ public class potion extends Objet{
 			System.out.println("Vous n'avez pas assez de pièce pour acheter la potion de vie");
 	}
 	
-	public void utilisePotion(Joueur j) {
+	public static void utilisePotion(Joueur j) {
 		System.out.println("Vous utilisez la potion pour gagner une vie!");
 		j.gagnerVie();
+		j.inventaire[2] = false;
 	}
 }

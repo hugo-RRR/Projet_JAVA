@@ -30,9 +30,8 @@ public class Joueur {
     }
     
     public void perdrePieces(int prix) {
-    		this.nbPieces = this.nbPieces - prix;
     	if(this.nbPieces < prix) {
-    		System.out.println("Vous n'avez pas assez de pièce pour acheter l'objet");
+    		System.out.println("Vous n'avez pas assez de pièce sur vous");
     	}
     	else 
     		this.nbPieces = this.nbPieces - prix;
@@ -47,7 +46,7 @@ public class Joueur {
     }
     
     public void degat() {
-    	if (this.nbVies >= 1)
+    	if (this.nbVies >= 2)
     		this.nbVies = this.nbVies - 1;
     	else
     		this.mourir();
@@ -80,4 +79,15 @@ public class Joueur {
 	public boolean[] getInventaire() {
 		return inventaire;
 	}
+
+
+	public boolean isVivre() {
+		return vivre;
+	}
+
+	public void setVivre(boolean vivre) {
+		this.vivre = vivre;
+	}
+	
+	
 }
