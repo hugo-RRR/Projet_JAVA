@@ -28,20 +28,29 @@ public class SalleVide {
 	    	if (value ==0) 
 	    	{   //   1/4 chance d'obtenir un fragment de clé car rare 
 	    		
-	    		System.out.println("Vous ouvrez le coffre, vous y trouvez un fragment de clé");     
+	    		System.out.println("Vous ouvrez le tonneau, vous y trouvez un fragment de clé.");     
 	    		j.gagnerFragmentsCle();										//gain fragment de clé
+	    		
+	    	}
+	    	
+	    	else if (value ==1) 
+	    	{   //   1/4 chance de perdre une vie
+	    		
+	    		System.out.println("Vous ouvrez le tonneau, c'est un piège, il vous explose à la figure, vous perdez une vie.");     
+	    		j.degat();										//perte de vie, ici l'utilisation de l'armure ne marche pas
 	    		
 	    	}
 	    	
 	    	else 
 	    	{
 	    		
-	    		System.out.println("Vous ouvrez le coffre, un nain y surgit muni d'un poignard et vous dépouille de 5 pièces");
-	    		j.perdrePieces(3);			//   3/4 chance de malchance 
+	    		System.out.println("Vous ouvrez le coffre, un nain y surgit muni d'un poignard et vous dépouille de 5 pièces.");
+	    		j.perdrePieces(3);			//   2/4 chance de malchance et perdre pièce
 	    		
 	    	}
 	    	
 	    }
+	    
 	}
 
 }

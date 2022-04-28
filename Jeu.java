@@ -90,7 +90,17 @@ public class Jeu {
 				Marchand.marchand(this.j);  //appelle la salle marchand si le typedeSalle est marchand
 			}
 			
+			if (this.ZoneActuelle.typeSalle == "marchand") {
+				Zone.afficheCommande(j, this.ZoneActuelle);		// on veut garder la salle marchand meme après y etre passé.
+			}
+			
+			else {
+				
+			
+			this.ZoneActuelle = new Zone("vide", ZoneActuelle.posX, ZoneActuelle.posY); //A chaque fin de salle, on enleve le défi ou l'enigme au cas où besoin d'y repasser.
 			Zone.afficheCommande(j, this.ZoneActuelle);    //A la fin de l'action réalisé dans la salle, appelle automatiqument la fonction commande
+			
+			}
 			
 		}
 		
